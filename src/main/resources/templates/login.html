@@ -1,0 +1,49 @@
+
+<!doctype>
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login </title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" th:href="@{bootstrap.css}">
+  <link rel="stylesheet" th:href="@{font-awesome/kuku/css/font-awesome.min.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{css/bootstrap.min.css}">
+</head>
+<body>
+<div class="vh-100 d-flex justify-content-center align-items-center">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="border border-3 border-primary"></div>
+        <div class="card bg-white shadow-lg">
+          <div class="card-body p-5">
+            <form class="mb-3 mt-md-4" method="POST" action="handler/login_handler.php">
+              <h2 class="fw-bold mb-2 text-uppercase ">LOGIN FORM</h2>
+              <p class=" mb-3">Please enter your login and password!</p>
+              <div class="mb-3">
+                <label for="email" class="form-label ">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label ">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="*******" required>
+              </div>
+              <p class="small">Forgot password?</p>
+              <div class="d-grid">
+                <a th:href="@{/list}" class="btn btn-outline-dark" type="submit" name="signin">Login</a>
+              </div>
+            </form>
+            <div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

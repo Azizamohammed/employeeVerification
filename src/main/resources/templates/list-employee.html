@@ -1,0 +1,97 @@
+
+<!doctype>
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>list employee</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" th:href="@{bootstrap.css}">
+    <link rel="stylesheet" th:href="@{font-awesome/kuku/css/font-awesome.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/bootstrap.min.css}">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm bg-light">
+
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/list}"><i class="fa fa-dashboard"></i> Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html"><i class="fa fa-info"></i> About Us</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" th:href="@{/logout}"><i class="fa fa-person"></i> Logout</a>
+            </li>
+             </ul>
+    </div>
+</nav>
+
+<div class="container" style="padding-top: 30px;">
+
+    <div class="row">
+
+        <div class="col-md-12 bg-info" style="height: 40px;">
+            <center><h4>EMPLOYEE VERIFICATION SYSTEM</h4></center>
+        </div>
+    </div>
+    <br>
+
+    <a th:href="@{/add-Employee}" class="btn btn-primary">ADD EMPLOYEE</a>
+    <br>
+    <hr>
+
+    <div class="row">
+
+        <div class="col-md-12 bg-light" style="height: 320px;">
+            <h3>List of Employeee</h3>
+            <hr>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Education_status</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="komwe: ${Employee}">
+                    <td th:text="${komwe.id}"></td>
+                    <td th:text="${komwe.name}"></td>
+                    <td th:text="${komwe.status}"></td>
+                    <td th:text="${komwe.address}"></td>
+                    <td th:text="${komwe.education_status}"></td>
+                    <td>
+                        <a th:href="@{/updateEmployee(id=${komwe.id})}" class="btn btn-success">UPDATE</a>
+                        <a th:href="@{/deleteEmployee(id=${komwe.id})}" class="btn btn-danger">DELETE</a>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="footerlinks text-center .col-sm-6 .col-md-5 .col-lg-6 bg-info">
+        <div class="copyright .col-sm-6 .col-md-5 .col-md-offset-2 .col-lg-6 .col-lg-offset-0">
+            <p>&copy; Copyright &middot; All Rights Reserved</p>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
